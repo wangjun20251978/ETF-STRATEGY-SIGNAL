@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ETF策略信号看板 (2026-08-14 20:17)</title>
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0c1422;color:#dfe7f2;font-family:-apple-system,'Microsoft YaHei',Segoe UI,sans-serif;font-size:13px;line-height:1.6;}
+.topnav{position:sticky;top:0;z-index:99;background:#0b2545;display:flex;align-items:center;gap:16px;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.35);flex-wrap:wrap;}
+.brand{font-weight:700;font-size:16px;color:#fff;white-space:nowrap;}
+.brand small{font-weight:400;opacity:.65;font-size:11px;margin-left:6px;}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;}
+.tabbtn{background:#13315c;color:#cfe3ff;border:1px solid #2a4d7a;border-radius:8px;padding:8px 13px;font-size:13px;cursor:pointer;transition:.15s;}
+.tabbtn:hover{background:#1b4070;}
+.tabbtn.active{background:#2f80ed;color:#fff;border-color:#2f80ed;}
+.tabpane{padding:14px 16px 0;}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 14px;}
+.kpi{flex:1;min-width:120px;background:#13233c;border:1px solid #21304a;border-radius:12px;padding:14px;text-align:center;}
+.kpi-n{font-size:30px;font-weight:800;}
+.kpi-l{font-size:12px;color:#9aa7b8;margin-top:4px;}
+.up{color:#f5475b;} .down{color:#21ba72;} .mid{color:#9aa7b8;} .warn{color:#ff9f43;}
+h3{color:#7fb2ff;margin:16px 0 8px;font-size:15px;border-left:3px solid #2f80ed;padding-left:8px;}
+table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:12px;}
+th,td{border:1px solid #20304a;padding:6px 8px;text-align:center;}
+th{background:#16263f;color:#cfe3ff;font-weight:600;}
+tr:nth-child(even) td{background:#0f1c30;}
+.method{max-width:880px;}
+.mt td,.mt th{text-align:left;}
+.ok{color:#21ba72;} .na{color:#f5475b;} .badge{display:inline-block;background:#13233c;border:1px solid #21304a;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:12px;}
+.badge.warn{border-color:#5a3a12;background:#2a1d0a;color:#ffb86b;}
+.badge.ok{border-color:#1c3a2a;background:#0f261b;color:#7ee0a8;}
+.quote{margin:12px 0;padding:10px 14px;background:#0f1c30;border-left:3px solid #ff9f43;color:#ffd9a8;font-style:italic;}
+.disclaimer{margin:20px 16px 36px;padding:12px 14px;background:#fff7e6;border:1px solid #ffd591;border-radius:10px;color:#8a5a00;font-size:12px;line-height:1.7;}
+.disclaimer b{color:#cf1322;}
+.sub{color:#9aa7b8;font-size:12px;margin:2px 0 10px;}
+
+</style>
+</head>
+<body>
+<div class="topnav">
+  <div class="brand">ETF策略信号看板<small>热门20只ETF · 三类策略信号</small></div>
+  <div class="tabs">
+    <button class="tabbtn active" onclick="showTab('t1',this)">📡 量化交易信号</button>
+    <button class="tabbtn" onclick="showTab('t2',this)">🎯 A股短线交易决策</button>
+    <button class="tabbtn" onclick="showTab('t3',this)">⚡ A股超短线交易策略</button>
+  </div>
+</div>
+
+<div id="t1" class="tabpane">
+  <div class="sub">① 量化交易信号 —— 对热门20只ETF逐只计算 MACD/RSI/KDJ/均线/布林带，统计多头/空头信号数，给出偏多⭐/偏空/中性判定。红涨绿跌。</div>
+  <div class="kpis"><div class="kpi"><div class="kpi-n up">8</div><div class="kpi-l">偏多 · 基金数</div></div><div class="kpi"><div class="kpi-n down">5</div><div class="kpi-l">偏空 · 基金数</div></div><div class="kpi"><div class="kpi-n mid">6</div><div class="kpi-l">中性 · 基金数</div></div><div class="kpi"><div class="kpi-n warn">0</div><div class="kpi-l">震荡(布林窄) · 基金数</div></div></div>
+  <table><tr><th>代码</th><th>名称</th><th>MACD</th><th>RSI</th><th>KDJ</th><th>均线</th><th>布林带</th><th>综合信号</th></tr><tr><td>sz159388</td><td>创业板人工智能ETF</td><td><span class="up">金叉</span></td><td><span class="mid">57</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">21.7%带宽</span></td><td><span class="up">偏多⭐⭐</span></td></tr><tr><td>sz159611</td><td>电力ETF</td><td><span class="down">死叉</span></td><td><span class="mid">43</span></td><td><span class="down">死叉</span></td><td><span class="down">空头</span></td><td><span class="mid">4.6%带宽</span></td><td><span class="down">偏空⭐⭐⭐</span></td></tr><tr><td>sh589120</td><td>科创创新药ETF</td><td><span class="up">金叉</span></td><td><span class="mid">59</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">20.3%带宽</span></td><td><span class="up">偏多⭐⭐</span></td></tr><tr><td>sh516350</td><td>芯片ETF</td><td><span class="up">金叉</span></td><td><span class="mid">44</span></td><td><span class="up">金叉</span></td><td><span class="mid">纠缠</span></td><td><span class="mid">22.5%带宽</span></td><td><span class="mid">中性</span></td></tr><tr><td>sh516510</td><td>云计算ETF</td><td><span class="up">金叉</span></td><td><span class="mid">59</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">13.6%带宽</span></td><td><span class="up">偏多⭐⭐⭐</span></td></tr><tr><td>sz159695</td><td>通信ETF</td><td><span class="mid">—</span></td><td><span class="mid">57</span></td><td><span class="up">金叉</span></td><td><span class="mid">纠缠</span></td><td><span class="mid">158.1%带宽</span></td><td><span class="down">偏空⭐⭐</span></td></tr><tr><td>sh560090</td><td>证券ETF</td><td><span class="down">死叉</span></td><td><span class="mid">39</span></td><td><span class="down">死叉</span></td><td><span class="down">空头</span></td><td><span class="mid">3.7%带宽</span></td><td><span class="down">偏空⭐⭐</span></td></tr><tr><td>sz159560</td><td>芯片ETF</td><td><span class="up">金叉</span></td><td><span class="mid">44</span></td><td><span class="up">金叉</span></td><td><span class="mid">纠缠</span></td><td><span class="mid">22.2%带宽</span></td><td><span class="mid">中性</span></td></tr><tr><td>sh589180</td><td>科创新材料ETF</td><td><span class="up">金叉</span></td><td><span class="mid">57</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">23.2%带宽</span></td><td><span class="up">偏多⭐⭐</span></td></tr><tr><td>sz159259</td><td>成长ETF</td><td><span class="up">金叉</span></td><td><span class="mid">52</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">21.7%带宽</span></td><td><span class="up">偏多⭐⭐</span></td></tr><tr><td>sz159178</td><td>消费电子ETF</td><td><span class="up">金叉</span></td><td><span class="mid">49</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">18.8%带宽</span></td><td><span class="up">偏多⭐⭐</span></td></tr><tr><td>sh516310</td><td>银行ETF</td><td><span class="down">死叉</span></td><td><span class="mid">45</span></td><td><span class="down">死叉</span></td><td><span class="down">空头</span></td><td><span class="mid">6.5%带宽</span></td><td><span class="down">偏空⭐⭐</span></td></tr><tr><td>sh562950</td><td>消费电子ETF</td><td><span class="up">金叉</span></td><td><span class="mid">48</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">19.0%带宽</span></td><td><span class="up">偏多⭐⭐</span></td></tr><tr><td>sz159590</td><td>软件ETF</td><td><span class="mid">—</span></td><td><span class="down">超买>70</span></td><td><span class="down">死叉</span></td><td><span class="mid">纠缠</span></td><td><span class="mid">18.8%带宽</span></td><td><span class="down">偏空⭐⭐</span></td></tr><tr><td>sh516770</td><td>游戏ETF</td><td><span class="up">金叉</span></td><td><span class="down">超买>70</span></td><td><span class="down">死叉</span></td><td><span class="up">多头</span></td><td><span class="mid">18.7%带宽</span></td><td><span class="mid">中性</span></td></tr><tr><td>sh501080</td><td>科创主题投资基金LOF</td><td><span class="up">金叉</span></td><td><span class="mid">49</span></td><td><span class="down">死叉</span></td><td><span class="up">多头</span></td><td><span class="mid">28.5%带宽</span></td><td><span class="mid">中性</span></td></tr><tr><td>sz159736</td><td>食品饮料ETF</td><td><span class="up">金叉</span></td><td><span class="mid">64</span></td><td><span class="down">死叉</span></td><td><span class="up">多头</span></td><td><span class="mid">8.2%带宽</span></td><td><span class="mid">中性</span></td></tr><tr><td>sz159320</td><td>电网设备ETF</td><td><span class="up">金叉</span></td><td><span class="mid">60</span></td><td><span class="up">金叉</span></td><td><span class="up">多头</span></td><td><span class="mid">12.8%带宽</span></td><td><span class="up">偏多⭐⭐⭐</span></td></tr><tr><td>sh515710</td><td>食品饮料ETF</td><td><span class="down">死叉</span></td><td><span class="mid">62</span></td><td><span class="down">死叉</span></td><td><span class="up">多头</span></td><td><span class="mid">7.2%带宽</span></td><td><span class="mid">中性</span></td></tr></table>
+</div>
+
+<div id="t2" class="tabpane" style="display:none">
+  <div class="sub">② A股短线交易决策 —— 对热门20只ETF，动量+低位+资金流 加权短线评分(0-100)，风控通过且≥50判为可短线交易。红涨绿跌。</div>
+  <div class="kpis"><div class="kpi"><div class="kpi-n up">18</div><div class="kpi-l">可短线交易 · 基金数</div></div><div class="kpi"><div class="kpi-n mid">1</div><div class="kpi-l">观望 · 基金数</div></div><div class="kpi"><div class="kpi-n">19</div><div class="kpi-l">跟踪基金总数</div></div></div>
+  <table><tr><th>代码</th><th>名称</th><th>动量分</th><th>低位分</th><th>资金流分</th><th>综合分</th><th>判定</th></tr><tr><td>sz159388</td><td>创业板人工智能ETF</td><td><span class="up">36</span></td><td><span class="mid">17</span></td><td><span class="mid">17</span></td><td><span class="up">69.3</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159611</td><td>电力ETF</td><td><span class="up">23</span></td><td><span class="up">25</span></td><td><span class="mid">14</span></td><td><span class="up">61.5</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh589120</td><td>科创创新药ETF</td><td><span class="up">39</span></td><td><span class="mid">2</span></td><td><span class="up">30</span></td><td><span class="up">70.3</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh516350</td><td>芯片ETF</td><td><span class="mid">19</span></td><td><span class="up">23</span></td><td><span class="mid">16</span></td><td><span class="up">57.0</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh516510</td><td>云计算ETF</td><td><span class="up">38</span></td><td><span class="mid">9</span></td><td><span class="mid">13</span></td><td><span class="up">60.5</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159695</td><td>通信ETF</td><td><span class="down">0</span></td><td><span class="up">28</span></td><td><span class="mid">17</span></td><td><span class="mid">44.9</span></td><td><span class="mid">⏸ 观望</span></td></tr><tr><td>sh560090</td><td>证券ETF</td><td><span class="mid">18</span></td><td><span class="mid">15</span></td><td><span class="mid">20</span></td><td><span class="up">52.6</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159560</td><td>芯片ETF</td><td><span class="mid">20</span></td><td><span class="up">22</span></td><td><span class="mid">10</span></td><td><span class="up">52.0</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh589180</td><td>科创新材料ETF</td><td><span class="up">32</span></td><td><span class="up">21</span></td><td><span class="up">23</span></td><td><span class="up">75.8</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159259</td><td>成长ETF</td><td><span class="up">21</span></td><td><span class="mid">20</span></td><td><span class="up">20</span></td><td><span class="up">61.1</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159178</td><td>消费电子ETF</td><td><span class="up">20</span></td><td><span class="up">22</span></td><td><span class="mid">16</span></td><td><span class="up">58.6</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh516310</td><td>银行ETF</td><td><span class="up">22</span></td><td><span class="mid">12</span></td><td><span class="up">22</span></td><td><span class="up">55.4</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh562950</td><td>消费电子ETF</td><td><span class="up">22</span></td><td><span class="up">22</span></td><td><span class="mid">20</span></td><td><span class="up">63.4</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159590</td><td>软件ETF</td><td><span class="up">40</span></td><td><span class="mid">17</span></td><td><span class="up">22</span></td><td><span class="up">78.2</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh516770</td><td>游戏ETF</td><td><span class="up">36</span></td><td><span class="mid">8</span></td><td><span class="mid">17</span></td><td><span class="up">61.9</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh501080</td><td>科创主题投资基金LOF</td><td><span class="up">20</span></td><td><span class="up">23</span></td><td><span class="up">30</span></td><td><span class="up">73.5</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159736</td><td>食品饮料ETF</td><td><span class="up">31</span></td><td><span class="mid">5</span></td><td><span class="mid">14</span></td><td><span class="up">50.3</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sz159320</td><td>电网设备ETF</td><td><span class="up">40</span></td><td><span class="up">29</span></td><td><span class="mid">19</span></td><td><span class="up">88.3</span></td><td><span class="up">✅ 可交易</span></td></tr><tr><td>sh515710</td><td>食品饮料ETF</td><td><span class="up">30</span></td><td><span class="mid">6</span></td><td><span class="mid">18</span></td><td><span class="up">54.3</span></td><td><span class="up">✅ 可交易</span></td></tr></table>
+</div>
+
+<div id="t3" class="tabpane" style="display:none">
+  <div class="sub">③ A股超短线交易策略 —— 方法论卡片，并标注对 ETF 的适用边界（红字=不适用，绿字=可迁移）。</div>
+  
+<div class="method">
+  <h3>⚡ 核心定位</h3>
+  <p>游牧型超短线交易者 —— <b>只做主线、只做最强、只赚爆发段</b>。原计划面向 A股个股（打板/连板），对 ETF 需做边界裁剪（见下方红字）。</p>
+
+  <h3>🎯 选股/选标的标准</h3>
+  <table class="mt">
+    <tr><th>维度</th><th>原计划(个股)</th><th>对ETF的适用</th></tr>
+    <tr><td>主线题材</td><td>政策/事件/资金驱动的板块</td><td class="ok">✅ 适用：选当下最强行业/宽基ETF</td></tr>
+    <tr><td>流通市值</td><td>50-300亿</td><td class="na">❌ 不适用：ETF看规模与流动性</td></tr>
+    <tr><td>换手率</td><td>5%-15%</td><td class="ok">✅ 参考：看成交量活跃度</td></tr>
+    <tr><td>板块涨停数≥3</td><td>确认题材持续</td><td class="na">❌ 不适用：ETF无涨停板博弈</td></tr>
+    <tr><td>龙头>跟风</td><td>率先涨停/成交最大</td><td class="na">❌ 不适用：ETF是篮子，无龙头个股</td></tr>
+  </table>
+
+  <h3>💰 仓位管理（原计划按50万本金）</h3>
+  <table class="mt">
+    <tr><th>情况</th><th>仓位</th><th>对ETF</th></tr>
+    <tr><td>强主线+强龙头</td><td>50%（25万，1-2只）</td><td class="ok">✅ 可迁移：单标的≤50%</td></tr>
+    <tr><td>一般机会</td><td>30%（15万，1只）</td><td class="ok">✅ 可迁移</td></tr>
+    <tr><td>弱信号/试错</td><td>10-15%（5-7万）</td><td class="ok">✅ 可迁移</td></tr>
+  </table>
+  <p class="badge">铁律：单只不超50%仓位 · 永远保留底仓现金 · 绝不临时起意加仓</p>
+
+  <h3>🛑 止损纪律（可完整迁移到ETF）</h3>
+  <table class="mt">
+    <tr><th>类型</th><th>规则</th></tr>
+    <tr><td>固定止损</td><td class="ok">✅ 买入价 -5% 无条件执行</td></tr>
+    <tr><td>日内止损</td><td class="ok">✅ 当日收盘亏>3%，次日竞价出</td></tr>
+    <tr><td>题材止损</td><td class="ok">✅ 主线逻辑证伪，无论盈亏立刻走</td></tr>
+  </table>
+
+  <h3>📉 回撤控制（可迁移）</h3>
+  <p>单月回撤≥10% → 下一笔前强制复盘；<b>连亏3次 → 强制停手1-3天</b>；账户回撤达15% → 降至半仓以下。</p>
+
+  <h3>📌 ETF 超短线适用边界总结</h3>
+  <p class="badge warn">不适用（删除）：首板打板、二板确认、龙头/跟风、创业板20%/北交所30%弹性、板块涨停数筛选 —— 这些是<b>个股涨停板博弈</b>，ETF 没有。</p>
+  <p class="badge ok">可迁移（保留）：仓位纪律（单标的≤50%、留现金）、固定/日内/题材三类止损、连亏停手与回撤控制、只做主线的思路。</p>
+  <p class="quote">“短线交易的核心不是选股，是纪律。计划你的交易，交易你的计划。”</p>
+</div>
+
+</div>
+
+<div class="disclaimer">⚠️ <b>免责声明：</b>本网站所有内容仅基于历史行情数据的量化模型与策略方法论展示，用于学习与研究，<b>不构成任何投资建议</b>。市场有风险，投资须谨慎，据此操作盈亏自负。</div>
+
+<script>
+function showTab(id,btn){
+  var ps=document.querySelectorAll('.tabpane');
+  for(var i=0;i<ps.length;i++){ps[i].style.display='none';}
+  document.getElementById(id).style.display='block';
+  var bs=document.querySelectorAll('.tabbtn');
+  for(var i=0;i<bs.length;i++){bs[i].classList.remove('active');}
+  btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body></html>
