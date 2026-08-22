@@ -312,6 +312,7 @@ body{background:#0c1422;color:#dfe7f2;font-family:-apple-system,'Microsoft YaHei
 .topnav{position:sticky;top:0;z-index:99;background:#0b2545;display:flex;align-items:center;gap:16px;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.35);flex-wrap:wrap;}
 .brand{font-weight:700;font-size:16px;color:#fff;white-space:nowrap;}
 .brand small{font-weight:400;opacity:.65;font-size:11px;margin-left:6px;}
+.datebadge{margin-left:auto;background:#0b1c33;border:1px solid #21304a;border-radius:8px;padding:6px 12px;font-size:12px;color:#7fb2ff;white-space:nowrap;}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;}
 .tabbtn{background:#13315c;color:#cfe3ff;border:1px solid #2a4d7a;border-radius:8px;padding:8px 13px;font-size:13px;cursor:pointer;transition:.15s;}
 .tabbtn:hover{background:#1b4070;}
@@ -351,6 +352,7 @@ TEMPLATE = """<!DOCTYPE html>
 <body>
 <div class="topnav">
   <div class="brand">ETF策略信号看板<small>热门20只ETF · 三类策略信号</small></div>
+  <div class="datebadge" id="datebadge">📅 行情日期：__DATADATE__</div>
   <div class="tabs">
     <button class="tabbtn active" onclick="showTab('t1',this)">📡 量化交易信号</button>
     <button class="tabbtn" onclick="showTab('t2',this)">🎯 A股短线交易决策</button>
@@ -393,6 +395,7 @@ function showTab(id,btn){
 def main():
     print("== 抓取热门20只ETF 真实K线 ==")
     items = []
+    data_date = ""
     for code, name in ETFS:
         try:
             rows = fetch_kline(code, datalen=160)
@@ -402,7 +405,8 @@ def main():
             print("  [跳过] %s: 数据不足" % code); continue
         items.append({"code": code, "name": name,
                       "q": analyze_quant(rows), "s": analyze_short(rows)})
-    print("  成功处理 %d 只" % len(items))
+        data_date = rows[-1]["day"][:10]
+    print("  成功处理 %d 只，行情日期 %s" % (len(items), data_date))
 
     q_cards, q_rows = render_quant(items)
     s_cards, s_rows = render_short(items)
@@ -410,6 +414,7 @@ def main():
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     html = TEMPLATE % (CSS, q_cards, q_rows, s_cards, s_rows, METHOD_CARD)
     # 注入日期
+    html = html.replace("__DATADATE__", data_date or now[:10])
     html = html.replace("<title>ETF策略信号看板</title>",
                          "<title>ETF策略信号看板 (%s)</title>" % now)
 
